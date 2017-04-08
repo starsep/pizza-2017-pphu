@@ -17,11 +17,11 @@ public class Connection {
 
     public Connection(int port)  throws IOException {
         socket = new Socket(HOST, port);
-        IO.err.print(getData());
+        IO.info(getData());
         sendData(USERNAME);
-        IO.err.print(getData());
+        IO.info(getData());
         sendData(PASSWORD);
-        IO.err.print(getData());
+        IO.info(getData());
     }
 
     private String getData() throws IOException {
@@ -45,7 +45,7 @@ public class Connection {
     public void sendData(String data) throws IOException {
         String d = data + "\n";
         OutputStream out = socket.getOutputStream();
-        IO.err.print("SENDING " + d);
+        IO.info("SENDING " + d);
         out.write(d.getBytes());
     }
 
